@@ -72,32 +72,6 @@
   "immutable": true
 },
 {
-  "name": "docker_registry_camc_pattern_manager_version",
-  "type": "string",
-  "description": "Content Runtime's Pattern Manager (PM) docker-image version to be installed. The version will reflect the shipped version. https://hub.docker.com/r/ibmcom/camc-pattern-manager/tags/",
-  "default": "2.0-current",
-  "hidden": true,
-  "label": "Pattern Manager Docker Tag",
-  "group_name": "additional_settings",
-  "secured": false,
-  "system": false,
-  "required": true,
-  "immutable": true
-},
-{
-  "name": "docker_registry_camc_sw_repo_version",
-  "type": "string",
-  "description": "Content Runtime's Software Repository (SW-Repo) docker-image version to be installed. The version will reflect the shipped version. https://hub.docker.com/r/ibmcom/camc-sw-repo/tags/",
-  "default": "2.0-current",
-  "hidden": true,
-  "label": "Software Repository (SW-Repo) docker-image version to be installed.",
-  "group_name": "additional_settings",
-  "secured": false,
-  "system": false,
-  "required": true,
-  "immutable": true
-},
-{
   "name": "ibm_sw_repo_user",
   "type": "string",
   "description": "User name to access the Software Repository.",
@@ -173,6 +147,46 @@
   "required": true,
   "immutable": false
 },
+{
+  "name": "chefdk_version",
+  "type": "string",
+  "description": "Stable version of ChefDK to install in the Pattern Manager.",
+  "default": "3.0.36",
+  "hidden": false,
+  "label": "ChefDK Version",
+  "group_name": "docker_chef_settings",
+  "secured": false,
+  "system": false,
+  "required": true,
+  "immutable": false,
+  "immutable_after_create": true
+},      
+{
+  "name": "chefdk_path",
+  "type": "string",
+  "description": "Provide the local path to chefdk installation binaries. Must be in the following format /path/to/chefdk without trailing slash.",
+  "hidden": false,
+  "label": "ChefDK Installation Binaries Path",
+  "group_name": "docker_chef_settings",
+  "secured": false,
+  "system": false,
+  "required": true,
+  "immutable": false
+},    
+{
+  "name": "chef_license_agree",
+  "type": "string",
+  "description": "Type Agree to confirm that you are using free distribution of Chef or you have a commercial license for commercial distribution of Chef. IBM Ltd is not liable for any Chef license misuse. If you use ChefInfra Server 13.x (or higher), ChefInfra Client 15.x (or higher) and Chef DK 4.x (or higher) for commercial purpose, you must have a commercial license from Chef. See https://docs.chef.io/versions.html for more details.",
+  "hidden": false,
+  "label": "Chef License Agreement (click on the information icon (i) for more details)",
+  "group_name": "docker_chef_settings",
+  "secured": false,
+  "system": false,
+  "required": true,
+  "immutable": false,
+  "regex": "^(Agree)$",
+  "regexdesc": "Value must be Agree."
+},      
 {
   "name": "ibm_im_repo_user_hidden",
   "type": "string",
@@ -704,31 +718,6 @@
   "system": false,
   "required": true,
   "immutable": true
-},
-{
-  "name": "docker_registry_camc_pattern_manager_version",
-  "type": "string",
-  "description": "Content Runtime's Pattern Manager (PM) docker-image version to be installed. The version will reflect the shipped version. https://hub.docker.com/r/ibmcom/camc-pattern-manager/tags/",
-  "hidden": true,
-  "label": "Pattern Manager Docker Tag",
-  "group_name": "content_template_output",
-  "secured": false,
-  "system": false,
-  "required": true,
-  "immutable": true
-},
-{
-  "name": "docker_registry_camc_sw_repo_version",
-  "type": "string",
-  "description": "Content Runtime's Software Repository (SW-Repo) docker-image version to be installed. The version will reflect the shipped version. https://hub.docker.com/r/ibmcom/camc-sw-repo/tags/",
-  "hidden": true,
-  "label": "Software Repository (SW-Repo) docker-image version to be installed.",
-  "group_name": "content_template_output",
-  "secured": false,
-  "system": false,
-  "required": true,
-  "immutable": true,
-  "default": ""
 },
 {
   "name": "ibm_sw_repo_user",
